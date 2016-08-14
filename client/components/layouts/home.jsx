@@ -7,13 +7,13 @@ HomeLayout = React.createClass({
                     <div className="row">
                         <div className="col-md-6">
                             Features
-                            <div className="col-md-5 col-md-offset-1">
-                                Sign Up
+                            <div className="col-md-5 col-md-offset-1 pull-right">
+                                <Signupform />
                              </div>
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         )
     }
 });
