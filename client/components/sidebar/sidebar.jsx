@@ -7,7 +7,7 @@ Sidebar = React.createClass({
     ],
     render(){
         var rows=this.links.map(function(link){
-        return(<li key={link._id}>
+        return(<li key={link.id}>
             <a href={link.href}>
                 <i className={link.icon}></i>
                 {link.text}</a>
