@@ -5,6 +5,15 @@ Statusform =React.createClass({
           filename: ''
       }
     },
+    uploadFile(e){
+        e.preventDefault();
+        var that= this;
+        FS.utility.eachFile(e,function(file){
+            Images.insert(file,function(err,fileObj){
+                that.setState({image:fileObj._id, filename:fileObj.data.blob.name});
+            })
+        })
+    },
     render(){
         return(
             <div className="panel panel-default">
@@ -23,7 +32,7 @@ Statusform =React.createClass({
                                 <div>
                                     <ul className="pull-left list-inline">
                                         <li>
-                                            <input ref ="file"type="file" className="filepicker" id="file"/>
+                                            <input onChange={this.uploadFile} ref ="file"type="file" className="filepicker" id="file"/>
                                         </li>
                                     </ul>
                                     <button className="btn btn-primary btn-sm postbutton">

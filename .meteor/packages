@@ -26,3 +26,4 @@ kadira:flow-router
 fortawesome:fontawesome
 momentjs:moment
 react-meteor-data
+ostrio:files
