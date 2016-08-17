@@ -43,7 +43,7 @@ Signupform = React.createClass({
                 <form onSubmit={this.handleSubmit}>
                     <div className="col-sm-9">
                         <div className="row">
-                            <div className="col-sm-6 form-group">
+                            <div className="col-sm-6 form-group ">
                                 <input name="first_name" placeholder="First Name" type="text" ref="first_name" className="form-control" />
                             </div>
                             <div className="col-sm-6 form-group">
