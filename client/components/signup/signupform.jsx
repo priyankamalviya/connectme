@@ -8,11 +8,10 @@ Signupform = React.createClass({
     getInitialState(){
         return {
             message:'',
-            messageClass: ''
+            messageClass: 'hidden'
         }
     },
     displayError(message){
-        this.setState({message:message, messageClass: 'alert alert-danger registerError'});
         this.setState({message:message, messageClass: 'alert alert-danger registerError'});
     },
     handleSubmit(e){

@@ -1,12 +1,12 @@
 Posts = new Mongo.Collection('posts');
 Posts.allow({
-    insert: function(){
+    insert:function(){
         return true;
     },
-    update: function(){
+    update:function(){
         return true;
     },
-    remove: function(){
+    remove:function(){
         return true;
     }
 });
