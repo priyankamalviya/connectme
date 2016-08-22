@@ -10,13 +10,16 @@ Statusform =React.createClass({
         ReactDOM.findDOMNode(this.refs.imageid).value = '';
         ReactDOM.findDOMNode(this.refs.sharing).focus();
     },
-    submitForm(){
+    submitForm(e){
         e.preventDefault();
         var message = this.refs.sharing.value;
         var imageid = this.refs.imageid.value;
+        var imageurl = '';
         if(imageid){
             var image = Images.findOne({_id:imageid});
-            var imageurl =image.url() ;
+            if(image) {
+                imageurl = image.url();
+            }
         }
         Meteor.call('Posts.insert', message, imageid, imageurl, function(err){
             if(err){
@@ -32,7 +35,7 @@ Statusform =React.createClass({
         FS.Utility.eachFile(e, function (file) {
             Images.insert(file, function (err, fileObj){
                 that.setState({image: fileObj._id, filename: fileObj.data.blob.name});
-            })
+            });
         });
     },
     render(){
@@ -46,7 +49,9 @@ Statusform =React.createClass({
                         <input type="hidden" ref="imageid" value={this.state.image}/>
                         <div className="panel-body">
                             <div className="form-group">
-                                <textarea placeholder="What do you want to share?" className="form-control input-lg" ref="sharing"id="sharing" ></textarea>
+                                <textarea placeholder="What do you want to share?" className="form-control input-lg" ref="sharing"id="sharing" >
+
+                                </textarea>
                                 <h3>{this.state.filename||''}</h3>
                             </div>
                             <div className="panel-footer">

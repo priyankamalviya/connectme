@@ -36,7 +36,7 @@ Signupform = React.createClass({
                 <div className="signup">
                     <h1>Sign up</h1>
                     <p className="text-muted">
-                        It'r free and always will be.
+                        It's free and always will be.
                     </p>
                 </div>
                 <form onSubmit={this.handleSubmit}>
