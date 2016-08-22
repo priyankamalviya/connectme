@@ -16,17 +16,18 @@ Header = React.createClass({
     },
     handleSubmit(e){
         e.preventDefault();
-        this.setState({message: message, messageClass: 'hidden'});
+        this.setState({message:'',messageClass:'hidden'});
         var that = this;
         var email = ReactDOM.findDOMNode(this.refs.email).value.trim();
         var password = ReactDOM.findDOMNode(this.refs.password).value.trim();
-        Meteor.loginWithPassword(email, password, function(e){
+        Meteor.loginWithPassword(email, password, function (e) {
             if(e){
-                that.displayError(e.reason);
-            }else{
-                FlowRouter.go('/dashboard');
+                that.displayError(e.reason)
+            } else{
+                Meteor.setTimeout(function(){
+                    FlowRouter.go('/dashboard');
+                },1000)
             }
-
         });
     },
     render(){
@@ -36,7 +37,7 @@ Header = React.createClass({
                     Connectme
                 </span>
                 <div className="collapse navbar-collapse" id="navbar">
-                    <form role="form" id="signin" className="navbar-form navbar-right">
+                    <form onSubmit={this.handleSubmit} role="form" id="signin" className="navbar-form navbar-right">
                         <div className="input-group">
                             <span className="input-group-addon">
                                 <i className="fa fa-user"></i>
