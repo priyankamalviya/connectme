@@ -28,7 +28,7 @@ Navbar = React.createClass({
     render(){
         var fullname = '';
         if(this.data.currentUser && this.data.currentUser.profile){
-            fullname: this.data.currentUser.profile.firstname + ' ' + this.data.currentUser.profile.lastname;
+            fullname = this.data.currentUser.profile.firstname + ' ' + this.data.currentUser.profile.lastname;
         }
         return(
             <div className="navbar navbar-blue navbar-fixed-top">

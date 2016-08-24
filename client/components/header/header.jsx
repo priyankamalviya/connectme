@@ -22,7 +22,7 @@ Header = React.createClass({
         var password = ReactDOM.findDOMNode(this.refs.password).value.trim();
         Meteor.loginWithPassword(email, password, function (e) {
             if(e){
-                that.displayError(e.reason)
+                that.displayError(e.reason);
             } else{
                 Meteor.setTimeout(function(){
                     FlowRouter.go('/dashboard');
@@ -53,6 +53,8 @@ Header = React.createClass({
                         <button className="btn btn-primary" type="submit">
                             Login
                         </button>
+                        <br/>
+                        <span className={this.state.messageClass}>{this.state.message}</span>
                     </form>
                 </div>
             </div>
